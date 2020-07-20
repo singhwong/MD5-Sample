@@ -1,0 +1,30 @@
+﻿<Window
+    x:Class="MD5HashDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MD5HashDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel Margin="5">
+            <TextBlock Text="使用哈希算法，计算哈希值。从任意长度的二进制字符串中创建一个长度固定的散列。如果再次散列相同的二进制字符串，会返回相同的散列结果。用于验证数据的完整性，防止被恶意篡改。"
+                   TextWrapping ="WrapWholeWords" Margin="0,0,0,10"/>
+            <ComboBox x:Name="Algorithm_options" Header="使用的哈希算法" SelectionChanged="Algorithm_options_SelectionChanged">
+                <ComboBoxItem Content="MD5"/>
+                <ComboBoxItem Content="SHA512"/>
+            </ComboBox>
+            <TextBox x:Name="Md5Hash_textBox" Header="提供的MD5哈希值" Margin ="0,5"/>
+            <TextBox x:Name="textBox" Header ="需要验证的文件路径"/>
+            <!--<TextBox x:Name="textBox"/>-->
+            <StackPanel Orientation="Horizontal" Margin ="0,5">
+                <Button Content="开始验证" Click="Button_Click"/>
+                <ProgressRing x:Name="Progress_ring" IsActive="False" Margin="5,0,0,0"/>
+            </StackPanel>
+            <Button x:Name="Cancel_btn" Content ="取消验证" Click ="Cancel_Click"/>
+            <TextBlock x:Name="Result_tb" Margin ="0,5" IsTextSelectionEnabled="True"/>
+            <TextBlock x:Name="Hash_tb" IsTextSelectionEnabled="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
